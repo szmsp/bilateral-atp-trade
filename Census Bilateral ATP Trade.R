@@ -142,7 +142,7 @@ View(month_exports)
 #### MERGE DATA AND CREATE LAGS ####
 
 # Merge import and export datasets
-trade_data <- merge(month_imports, month_exports, by = c("year_month", "country_code", "country_name", "high_tech_code", "high_tech_desc"))
+trade_data <- merge(month_imports, month_exports, by = c("year_month", "country_code", "country_name", "high_tech_code", "high_tech_desc"), all = TRUE)
 
 # Drop "Total" and "Not Advanced" values
 trade_data <- subset(trade_data, (high_tech_code != "00" & high_tech_code != "-"))
